@@ -83,8 +83,14 @@ const LANG={Python:'python',Java:'java','C++':'cpp',JavaScript:'javascript'},PLA
 const ST={new:'Not reviewed',understood:'Understood',revise:'Needs revision',mastered:'Mastered'};
 let S,view={n:'dash'},q='',df='',mem=0;
 try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){}
-if(!S||!S.folders)S={folders:PAT.map((n,i)=>({id:'f'+i,name:n})),problems:[],theme:'auto',name:'Thappita Jagadeesh'};
-const SB_URL='',SB_KEY='';/* paste your Supabase Project URL and anon key here */
+if(!S||!S.folders)S={
+  folders:PAT.map((n,i)=>({id:'f'+i,name:n})),
+  problems:[],
+  theme:'auto',
+  name:'Thappita Jagadeesh'
+};
+const SB_URL='https://nvtaatwjgebdemufvcxv.supabase.co';
+const SB_KEY='YOUR_SUPABASE_PUBLISHABLE_KEY';
 let sb=null,user=null,pt;
 if(SB_URL&&SB_KEY&&window.supabase)sb=supabase.createClient(SB_URL,SB_KEY);
 function setStat(m){window.syncMsg=m;const e=document.querySelector('.prof small');if(e)e.textContent=m}
